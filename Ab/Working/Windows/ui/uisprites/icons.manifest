@@ -1,0 +1,16 @@
+ManifestFileVersion: 0
+CRC: 4097543186
+Hashes:
+  AssetFileHash:
+    serializedVersion: 2
+    Hash: fdc20b98cc3d911591600c5bbb0b6b80
+  TypeTreeHash:
+    serializedVersion: 2
+    Hash: f19fbf085e00d23fbc8d6cf7b345590b
+HashAppended: 0
+ClassTypes:
+- Class: 28
+  Script: {instanceID: 0}
+Assets:
+- "Assets/GameMain/UI/UISprites/Icons/\u5317\u5DE5\u5927\u592A\u9633\u80FD.png"
+Dependencies: []

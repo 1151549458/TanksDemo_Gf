@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <ResourceCollection>
+    <Resources>
+      <Resource Name="Configs" LoadType="0" Packed="True" ResourceGroups="Base" />
+      <Resource Name="Entities" LoadType="0" Packed="True" />
+      <Resource Name="Localization/Dictionaries" Variant="en-us" LoadType="0" Packed="True" ResourceGroups="Base" />
+      <Resource Name="Localization/Dictionaries" Variant="zh-cn" LoadType="0" Packed="True" ResourceGroups="Base" />
+      <Resource Name="Music" LoadType="0" Packed="True" />
+      <Resource Name="UI/UISprites/Icons" LoadType="0" Packed="True" />
+    </Resources>
+    <Assets>
+      <Asset Guid="14869ac0d4433f04db1704e39d03412e" ResourceName="Localization/Dictionaries" ResourceVariant="en-us" />
+      <Asset Guid="28443d4d678f32e40a62da84f9c0c039" ResourceName="Music" />
+      <Asset Guid="44c8db52241385c45bbb14a1718f17bf" ResourceName="Configs" />
+      <Asset Guid="7fd11dc5d29076d469d414dec2818f11" ResourceName="Configs" />
+      <Asset Guid="9be2e1e45f4edd74c8764538ad306b78" ResourceName="Localization/Dictionaries" ResourceVariant="zh-cn" />
+      <Asset Guid="d82f252c2011d494a85ab0d8bcfc7536" ResourceName="UI/UISprites/Icons" />
+      <Asset Guid="db7131908f943af4fa7c7e1c7b26bdf1" ResourceName="Entities" />
+    </Assets>
+  </ResourceCollection>
+</UnityGameFramework>

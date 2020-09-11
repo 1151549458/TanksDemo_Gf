@@ -1,0 +1,40 @@
+﻿自己总结文档：https://psq.youthup.cn/gfframe    
+2020.0701：之前整理了Gf框架，
+			完成了替换源码；
+			完成了初始化游戏GameEntry；
+			完成打包信息设置。
+			完成了打包流程，添加ab资源名称，然后添加资源 在Editor。
+			完成了DataTabel模块，通过制表符生成文件，通过工具生成脚本 在Editor。
+			整理了Utility和Definition，公共方法 公共字段。
+2020.0720：	整理了需求
+
+2020.0813：	添加了UI模块的内容，做了UIFormId的例子，也就是UI界面。调用接口要放在UIExtension里。
+			添加了UGuiForm 和UGuiGroupHelper ，创建脚本直接继承UGuiForm，因为UGuiForm继承了UIFromLogic。
+2020.0813： 添加了Entity模块的内容，继承EntityLogic。
+
+
+
+##todo
+- 流程模块，整理流程需要的代码
+	- ProcedureLauch  配置游戏基础信息
+	- ProcedureSplash 编辑器模式下，直接进入预加载流程，否则检查一下版本，是否进行资源热更新。
+		- ProcedureChaeckVersion 版本检测
+		- ProcedureUpdateResource 根据情况看是否进行热更新
+	- ProcedurePreload 开始加载游戏运行的资源
+	- ProcedureChangeScene
+	- ProcedureMain
+	- ProcedureMenu
+- UI模块，
+- 实体模块
+- 事件模块
+- 资源热更新模块
+
+## Example
+
+//加载场景
+GameEntry.Scene.LoadScene(Constant.AssetPath.GetScene.MainScenePath, this); 
+GameEntry.Scene.UnloadScene(Constant.AssetPath.GetScene.MainScenePath, this);
+//切换流程 
+ChangeState<ProcedureHome>(procedureOwner); 
+//生成预制体
+GameEntry.Entity.ShowEntity<CubeLogic>(1, Constant.AssetPath.GetEntity.CubePath, "one", this);

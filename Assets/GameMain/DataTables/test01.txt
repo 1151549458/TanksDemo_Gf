@@ -1,0 +1,7 @@
+#	测试表			
+#	Id	StringValue	FloatValue	BoolValue
+#	int	string	float	bool
+#	编号	字符串	浮点数	Bool值
+	1	giao怪	1.02	TRUE
+	2	小小怪	2.03	FALSE
+	3	大大怪	4.04	TRUE

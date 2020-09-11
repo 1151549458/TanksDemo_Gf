@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<UnityGameFramework>
+  <BuildReport>
+    <Summary>
+      <ProductName>GameFwText</ProductName>
+      <CompanyName>DefaultCompany</CompanyName>
+      <GameIdentifier>com.Company.ProductName</GameIdentifier>
+      <GameFrameworkVersion>2020.06.16</GameFrameworkVersion>
+      <UnityVersion>2018.4.0f1</UnityVersion>
+      <ApplicableGameVersion>0.1</ApplicableGameVersion>
+      <InternalResourceVersion>3</InternalResourceVersion>
+      <Platforms>Windows</Platforms>
+      <ZipSelected>True</ZipSelected>
+      <BuildAssetBundleOptions>272</BuildAssetBundleOptions>
+    </Summary>
+    <Resources Count="9">
+      <Resource Name="Configs" LoadType="0" Packed="True" ResourceGroups="Base">
+        <Assets Count="2">
+          <Asset Guid="44c8db52241385c45bbb14a1718f17bf" Name="Assets/GameMain/Configs/DefaultConfig.txt" Length="162" HashCode="1970827408" />
+          <Asset Guid="7fd11dc5d29076d469d414dec2818f11" Name="Assets/GameMain/Configs/DefaultConfig.bytes" Length="45" HashCode="698598607" />
+        </Assets>
+        <Codes />
+      </Resource>
+      <Resource Name="DataTables" LoadType="0" Packed="True" ResourceGroups="Base">
+        <Assets Count="0" />
+        <Codes />
+      </Resource>
+      <Resource Name="Entities" LoadType="0" Packed="True">
+        <Assets Count="1">
+          <Asset Guid="db7131908f943af4fa7c7e1c7b26bdf1" Name="Assets/GameMain/Entities/Entity1.prefab" Length="5302" HashCode="-139345982" />
+        </Assets>
+        <Codes />
+      </Resource>
+      <Resource Name="Localization/Dictionaries" Variant="en-us" LoadType="0" Packed="True" ResourceGroups="Base">
+        <Assets Count="1">
+          <Asset Guid="14869ac0d4433f04db1704e39d03412e" Name="Assets/GameMain/Localization/English/Dictionaries/Default.xml" Length="1970" HashCode="-1951558404" />
+        </Assets>
+        <Codes />
+      </Resource>
+      <Resource Name="Localization/Dictionaries" Variant="zh-cn" LoadType="0" Packed="True" ResourceGroups="Base">
+        <Assets Count="1">
+          <Asset Guid="9be2e1e45f4edd74c8764538ad306b78" Name="Assets/GameMain/Localization/ChineseSimplified/Dictionaries/Default.xml" Length="1899" HashCode="-588953613" />
+        </Assets>
+        <Codes />
+      </Resource>
+      <Resource Name="Music" LoadType="0" Packed="True">
+        <Assets Count="1">
+          <Asset Guid="28443d4d678f32e40a62da84f9c0c039" Name="Assets/GameMain/Music/提示.wav" Length="113964" HashCode="-610989802" />
+        </Assets>
+        <Codes />
+      </Resource>
+      <Resource Name="Scenes" LoadType="0" Packed="True">
+        <Assets Count="0" />
+        <Codes />
+      </Resource>
+      <Resource Name="Textures" LoadType="0" Packed="True">
+        <Assets Count="0" />
+        <Codes />
+      </Resource>
+      <Resource Name="UI/UISprites/Icons" LoadType="0" Packed="True">
+        <Assets Count="1">
+          <Asset Guid="d82f252c2011d494a85ab0d8bcfc7536" Name="Assets/GameMain/UI/UISprites/Icons/北工大太阳能.png" Length="28792" HashCode="493646821" />
+        </Assets>
+        <Codes />
+      </Resource>
+    </Resources>
+  </BuildReport>
+</UnityGameFramework>

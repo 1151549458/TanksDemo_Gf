@@ -1,0 +1,22 @@
+ManifestFileVersion: 0
+CRC: 3432356540
+AssetBundleManifest:
+  AssetBundleInfos:
+    Info_0:
+      Name: configs
+      Dependencies: {}
+    Info_1:
+      Name: entities
+      Dependencies: {}
+    Info_2:
+      Name: localization/dictionaries.en-us
+      Dependencies: {}
+    Info_3:
+      Name: localization/dictionaries.zh-cn
+      Dependencies: {}
+    Info_4:
+      Name: music
+      Dependencies: {}
+    Info_5:
+      Name: ui/uisprites/icons
+      Dependencies: {}
