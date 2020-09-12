@@ -67,7 +67,7 @@ namespace GameFrameworkDemo
 
             if (Input.GetKeyDown(KeyCode.Q))
             {
-                index = GameEntry.UI.OpenUIForm(Constant.AssetPath.GetUI.LoginPanlePath, "one", this);
+                index = GameEntry.UI.OpenUIForm(Constant.AssetPath.GetUI.StartMenuPath, "one", this);
             }
             if (Input.GetKeyDown(KeyCode.W))
             {

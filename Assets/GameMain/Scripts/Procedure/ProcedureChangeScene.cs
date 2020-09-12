@@ -23,7 +23,7 @@ namespace GameFrameworkDemo
 {
     public class ProcedureChangeScene : ProcedureBase
     {
-        private bool isEnterGameScene;
+        private bool isEnterMenuScene;
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
@@ -31,9 +31,10 @@ namespace GameFrameworkDemo
             Debug.Log("ProcedureChangeScene"  );
             //切场景 
             GameEntry.Event.Subscribe(LoadSceneSuccessEventArgs.EventId, OnLoadSceneSuccess);
+            GameEntry.Event.Subscribe(LoadSceneFailureEventArgs.EventId, OnLoadSceneFailure);
 
-            GameEntry.Scene.LoadScene("Assets/GameMain/Scenes/MainScene.unity", this);
-            isEnterGameScene = false;
+            GameEntry.Scene.LoadScene(Constant.AssetPath.GetScene.MenuScenePath, this);
+            isEnterMenuScene = false;
         }
 
   
@@ -46,11 +47,11 @@ namespace GameFrameworkDemo
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            if (!isEnterGameScene) { return; }
+            if (!isEnterMenuScene) { return; }
 
-            if (isEnterGameScene)
+            if (isEnterMenuScene)
             {
-                ChangeState<ProcedureGame>(procedureOwner);
+                ChangeState<ProcedureMenu>(procedureOwner);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -65,7 +66,7 @@ namespace GameFrameworkDemo
 
             if (Input.GetKeyDown(KeyCode.Alpha1))
             {
-                ChangeState<ProcedureHome>(procedureOwner); 
+            //    ChangeState<ProcedureHome>(procedureOwner); 
             } 
             
         }
@@ -78,7 +79,7 @@ namespace GameFrameworkDemo
                 return;
             }
             Log.Info("Load scene '{0}' OK.", ne.SceneAssetName);
-            isEnterGameScene = true;
+            isEnterMenuScene = true;
         }
         private void OnLoadSceneFailure(object sender, GameEventArgs e)
         {

@@ -26,11 +26,15 @@ namespace GameFrameworkDemo
             {
                 public static string MainScenePath = "Assets/GameMain/Scenes/MainScene.unity"; 
                 public static string MenuScenePath = "Assets/GameMain/Scenes/MenuScene.unity"; 
+                public static string GameScenePath = "Assets/GameMain/Scenes/GameScene.unity";
             }
 
             public static class GetUI
             {
                 public static string LoginPanlePath = "Assets/GameMain/Prefabs/UI/LoginPanle.prefab"; 
+                public static string IntroducePanelPath = "Assets/GameMain/Prefabs/UI/IntroducePanel.prefab"; 
+                public static string StartMenuPath = "Assets/GameMain/Prefabs/UI/StartMenu.prefab";
+
             }
             public static class GetEntity
             {
