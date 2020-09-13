@@ -24,20 +24,25 @@ namespace GameFrameworkDemo
     public class ProcedureChangeScene : ProcedureBase
     {
         private bool isEnterMenuScene;
+        private bool isEnterGameScene;
 
         protected override void OnEnter(ProcedureOwner procedureOwner)
         {
             base.OnEnter(procedureOwner);
             Debug.Log("ProcedureChangeScene"  );
             //切场景 
-            GameEntry.Event.Subscribe(LoadSceneSuccessEventArgs.EventId, OnLoadSceneSuccess);
-            GameEntry.Event.Subscribe(LoadSceneFailureEventArgs.EventId, OnLoadSceneFailure);
+         
+            isEnterMenuScene = true;
+            isEnterGameScene = false;
 
-            GameEntry.Scene.LoadScene(Constant.AssetPath.GetScene.MenuScenePath, this);
-            isEnterMenuScene = false;
+            ChangeState<ProcedureMenu>(procedureOwner);
         }
 
-  
+        public void SetChange(bool b)
+        {
+            isEnterMenuScene = b;
+            isEnterGameScene = !b;
+        }
 
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
@@ -47,11 +52,15 @@ namespace GameFrameworkDemo
         {
             base.OnUpdate(procedureOwner, elapseSeconds, realElapseSeconds);
 
-            if (!isEnterMenuScene) { return; }
+            
 
             if (isEnterMenuScene)
             {
                 ChangeState<ProcedureMenu>(procedureOwner);
+            }
+            if (isEnterGameScene)
+            {
+                ChangeState<ProcedureGame>(procedureOwner);
             }
 
             if (Input.GetKeyDown(KeyCode.A))
@@ -71,32 +80,13 @@ namespace GameFrameworkDemo
             
         }
 
-        private void OnLoadSceneSuccess(object sender, GameEventArgs e)
-        {
-            LoadSceneSuccessEventArgs ne = (LoadSceneSuccessEventArgs)e;
-            if (ne.UserData != this)
-            {
-                return;
-            }
-            Log.Info("Load scene '{0}' OK.", ne.SceneAssetName);
-            isEnterMenuScene = true;
-        }
-        private void OnLoadSceneFailure(object sender, GameEventArgs e)
-        {
-            LoadSceneFailureEventArgs ne = (LoadSceneFailureEventArgs)e;
-            if (ne.UserData != this)
-            {
-                return;
-            } 
-            Log.Error("Load scene '{0}' failure, error message '{1}'.", ne.SceneAssetName, ne.ErrorMessage);
-        }
+
 
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
 
-            GameEntry.Event.Unsubscribe(LoadSceneSuccessEventArgs.EventId, OnLoadSceneSuccess);
-            GameEntry.Event.Unsubscribe(LoadSceneFailureEventArgs.EventId, OnLoadSceneFailure);
+
         }
         protected override void OnDestroy(ProcedureOwner procedureOwner)
         {

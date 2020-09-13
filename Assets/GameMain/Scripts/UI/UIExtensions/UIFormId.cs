@@ -34,8 +34,12 @@ namespace GameFrameworkDemo
         SettingForm = 101,
 
         /// <summary>
-        /// 关于。
+        /// 介绍。
         /// </summary>
-        AboutForm = 102,
+        IntroduceForm = 102,
+
+        
+
+
     }
 }

@@ -13,7 +13,9 @@ namespace TanksDemo
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
-
+            GetComponent<Button>().onClick.AddListener(()=> {
+                //this.OnClose(userData);
+            });
         }
 
         public void SetContent(string title,string content)
@@ -26,6 +28,7 @@ namespace TanksDemo
         protected override void OnOpen(object userData)
         {
             base.OnOpen(userData);
+            
 
         }
 

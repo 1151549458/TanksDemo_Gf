@@ -44,7 +44,7 @@ namespace TanksDemo
                 procedureMenu.StartGameClick();
             });
             btnIntroduce.onClick.AddListener(() => {
-                GameEntry.UI.OpenUIForm(UIFormId.SettingForm);
+                GameEntry.UI.OpenUIForm(Constant.AssetPath.GetUI.IntroducePanelPath, "one", this);
             });
           
         }

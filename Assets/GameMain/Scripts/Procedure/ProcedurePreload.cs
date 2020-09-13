@@ -15,6 +15,7 @@ using GameFramework.Procedure;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityGameFramework.Runtime;
 using ProcedureOwner = GameFramework.Fsm.IFsm<GameFramework.Procedure.IProcedureManager>;
 namespace GameFrameworkDemo
 {
@@ -38,9 +39,9 @@ namespace GameFrameworkDemo
         {
             base.OnEnter(procedureOwner);
 
-            m_LoadedFlag.Clear();
-          
+          //  m_LoadedFlag.Clear();
 
+            Debug.Log("ProcedurePreload");
         }
 
         protected override void OnInit(ProcedureOwner procedureOwner)
