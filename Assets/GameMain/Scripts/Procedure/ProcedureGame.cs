@@ -79,6 +79,12 @@ namespace TanksDemo
         protected override void OnLeave(ProcedureOwner procedureOwner, bool isShutdown)
         {
             base.OnLeave(procedureOwner, isShutdown);
+             
+            GameFrameworkDemo.GameEntry.Event.Unsubscribe(LoadSceneSuccessEventArgs.EventId, OnLoadSceneSuccess);
+            GameFrameworkDemo.GameEntry.Event.Unsubscribe(LoadSceneFailureEventArgs.EventId, OnLoadSceneFailure);
+
+            GameFrameworkDemo.GameEntry.Scene.UnloadScene(Constant.AssetPath.GetScene.MainScenePath, this);
+             
         }
         protected override void OnDestroy(ProcedureOwner procedureOwner)
         {

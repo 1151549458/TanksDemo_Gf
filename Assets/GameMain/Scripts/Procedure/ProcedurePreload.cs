@@ -23,8 +23,8 @@ namespace GameFrameworkDemo
     {
         public static readonly string[] DataTableNames = new string[]
         {
-            "Test" // 这是个测试资源，并没有使用
-             
+            "Test", // 这是个测试资源，并没有使用
+             "UIForm"
             /* "Entity",
             "Music",
             "Scene",
