@@ -73,7 +73,7 @@ namespace Complete
         /// </summary>
         private void SetCameraTargets()
         {
-            // Create a collection of transforms the same size as the number of tanks.
+            // 创建一个与坦克数量相同大小的转换集合。
             Transform[] targets = new Transform[m_Tanks.Length];
 
             // For each of these transforms...

@@ -13,7 +13,7 @@ namespace Complete
 
         public Color m_PlayerColor;                             // 坦克的颜色
         public Transform m_SpawnPoint;                          // 坦克生成的时候位置
-        [HideInInspector] public int m_PlayerNumber;            // This specifies which player this the manager for.
+        [HideInInspector] public int m_PlayerNumber;            // 这指定了管理器是针对哪个玩家的。
         [HideInInspector] public string m_ColoredPlayerText;    // A string that represents the player with their number colored to match their tank.
         [HideInInspector] public GameObject m_Instance;         // A reference to the instance of the tank when it is created.
         [HideInInspector] public int m_Wins;                    // The number of wins this player has so far.

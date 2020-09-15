@@ -12,16 +12,69 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+namespace TanksDemo
+{
+    public class BaseTanks : MonoBehaviour
+    {
+        public Color tanksColor;                             // 坦克的颜色
+        public Transform tranTanskPoint;
+        public GameObject goInstance;
 
-public class BaseTanks : MonoBehaviour
-{ 
-    void Start()
-    {
-        
-    }
+        protected TankMovement tankMovement;
+        protected TankShooting tankShooting;
+        protected GameObject goHPCanvas;
+        public virtual void SetUp(GameObject go)
+        {
+            goInstance = go; 
+            tankMovement = goInstance.GetComponent<TankMovement>();
+            tankShooting = goInstance.GetComponent<TankShooting>(); 
+            goHPCanvas = goInstance.GetComponentInChildren<Canvas>().gameObject; 
+            SetTanksColor(tanksColor);
+
+
+        }
+
+         
+        /// <summary>
+        /// 设置坦克颜色
+        /// </summary>
+        /// <param name="color"></param>
+        public void SetTanksColor(Color color)
+        { 
+            MeshRenderer[] renderers = goInstance.GetComponentsInChildren<MeshRenderer>(); 
+            for (int i = 0; i < renderers.Length; i++)
+            { 
+                renderers[i].material.color = color;
+            }
+
+        }
+
+
+        /// <summary>
+        /// 设置属性状态 true和false
+        /// </summary>
+        public void SetControlStep(bool b)
+        {
+            tankMovement.enabled = b;
+            tankShooting.enabled = b;
+
+            goHPCanvas.SetActive(b);
+        }
+
  
-    void Update()
-    {
-        
+
+        /// <summary>
+        /// 重置坦克
+        /// </summary>
+        public void Reset()
+        {
+            goInstance.transform.position = tranTanskPoint.position;
+            goInstance.transform.rotation = tranTanskPoint.rotation;
+
+            goInstance.SetActive(false);
+            goInstance.SetActive(true);
+        }
+
+
     }
 }
