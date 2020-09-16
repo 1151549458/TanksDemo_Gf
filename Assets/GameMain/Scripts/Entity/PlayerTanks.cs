@@ -12,16 +12,44 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+namespace TanksDemo
+{
+    public class PlayerTanks : BaseTanks
+    {
+        protected override void Awake()
+        {
+            base.Awake();
 
-public class PlayerTanks : MonoBehaviour
-{ 
-    void Start()
-    {
-        
-    }
- 
-    void Update()
-    {
-        
+
+        }
+
+        public override void InitTanks(CampType t, TanksInfo info)
+        {
+            base.InitTanks(t, info);
+
+        }
+
+        public override void SetControlStep(bool b)
+        {
+            base.SetControlStep(b);
+        }
+
+        public override void SetLevel(int index)
+        {
+            base.SetLevel(index);
+
+
+        }
+
+        public override void SetTanksColor(Color color)
+        {
+            base.SetTanksColor(color);
+        }
+
+
+        public override void Reset()
+        {
+            base.Reset();
+        }
     }
 }

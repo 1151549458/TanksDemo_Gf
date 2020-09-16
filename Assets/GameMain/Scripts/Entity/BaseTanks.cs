@@ -16,44 +16,72 @@ namespace TanksDemo
 {
     public class BaseTanks : MonoBehaviour
     {
+        /// <summary>
+        /// 坦克阵营类型
+        /// </summary>
+        public CampType tanksCampType;
+       
         public Color tanksColor;                             // 坦克的颜色
         public Transform tranTanskPoint;
         public GameObject goInstance;
 
+        protected TanksInfo tanksInfo;
         protected TankMovement tankMovement;
         protected TankShooting tankShooting;
         protected GameObject goHPCanvas;
-        public virtual void SetUp(GameObject go)
-        {
-            goInstance = go; 
+        protected virtual void Awake()
+        { 
+           // goInstance = go; 
             tankMovement = goInstance.GetComponent<TankMovement>();
             tankShooting = goInstance.GetComponent<TankShooting>(); 
-            goHPCanvas = goInstance.GetComponentInChildren<Canvas>().gameObject; 
+            goHPCanvas = goInstance.GetComponentInChildren<Canvas>().gameObject;
+           
+        }
+        public virtual void InitTanks(CampType t , TanksInfo info)
+        {
+            tanksCampType = t;
+            tanksInfo = info;
             SetTanksColor(tanksColor);
+        }
+
+        public virtual void LevelUp()
+        {
+            tanksInfo.Level++;
 
 
         }
 
-         
+        public virtual void SetLevel(int index)
+        {
+            tanksInfo.Level = index;
+
+            if (tanksCampType == CampType.EnemyBoss)
+            {
+                tanksInfo.TankScale += tanksInfo.Level * 0.08f;
+            }
+        }
+
         /// <summary>
         /// 设置坦克颜色
         /// </summary>
         /// <param name="color"></param>
-        public void SetTanksColor(Color color)
+        public virtual void SetTanksColor(Color color)
         { 
             MeshRenderer[] renderers = goInstance.GetComponentsInChildren<MeshRenderer>(); 
             for (int i = 0; i < renderers.Length; i++)
             { 
                 renderers[i].material.color = color;
-            }
-
+            } 
         }
-
+        public virtual void SetAttriInfo()
+        {
+             
+        }
 
         /// <summary>
         /// 设置属性状态 true和false
         /// </summary>
-        public void SetControlStep(bool b)
+        public virtual void SetControlStep(bool b)
         {
             tankMovement.enabled = b;
             tankShooting.enabled = b;
@@ -66,7 +94,7 @@ namespace TanksDemo
         /// <summary>
         /// 重置坦克
         /// </summary>
-        public void Reset()
+        public virtual void Reset()
         {
             goInstance.transform.position = tranTanskPoint.position;
             goInstance.transform.rotation = tranTanskPoint.rotation;

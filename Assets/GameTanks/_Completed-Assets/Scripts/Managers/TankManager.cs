@@ -21,6 +21,7 @@ namespace Complete
         private TankMovement m_Movement;                        // Reference to tank's movement script, used to disable and enable control.
         private TankShooting m_Shooting;                        // Reference to tank's shooting script, used to disable and enable control.
         private GameObject m_CanvasGameObject;                  // Used to disable the world space UI during the Starting and Ending phases of each round.
+
          /// <summary>
          /// 初始化
          /// </summary>
@@ -47,10 +48,8 @@ namespace Complete
                 // ... set their material color to the color specific to this tank.
                 renderers[i].material.color = m_PlayerColor;
             }
-        }
-
-
-        // Used during the phases of the game where the player shouldn't be able to control their tank.
+        } 
+         
         public void DisableControl ()
         {
             m_Movement.enabled = false;
