@@ -27,6 +27,9 @@ namespace TanksDemo
         {
             base.InitTanks(t, info);
 
+
+
+
         }
 
         public override void SetControlStep(bool b)

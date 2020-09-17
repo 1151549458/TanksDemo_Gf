@@ -12,16 +12,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+namespace TanksDemo {
+    public class EnemyTanks :BaseTanks
+    {
+        void Start()
+        {
 
-public class EnemyTanks : MonoBehaviour
-{ 
-    void Start()
-    {
-        
-    }
- 
-    void Update()
-    {
-        
+        }
+
+        void Update()
+        {
+
+        }
     }
 }

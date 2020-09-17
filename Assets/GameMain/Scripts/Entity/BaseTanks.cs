@@ -14,6 +14,20 @@ using System.Collections.Generic;
 using UnityEngine;
 namespace TanksDemo
 {
+    public interface ITanksInfo
+    {
+        void TakeDamage(float amount);
+
+
+    }
+
+
+
+
+
+
+
+
     public class BaseTanks : MonoBehaviour
     {
         /// <summary>
@@ -37,6 +51,11 @@ namespace TanksDemo
             goHPCanvas = goInstance.GetComponentInChildren<Canvas>().gameObject;
            
         }
+        /// <summary>
+        /// 初始化信息
+        /// </summary>
+        /// <param name="t"></param>
+        /// <param name="info"></param>
         public virtual void InitTanks(CampType t , TanksInfo info)
         {
             tanksCampType = t;
@@ -47,8 +66,7 @@ namespace TanksDemo
         public virtual void LevelUp()
         {
             tanksInfo.Level++;
-
-
+             
         }
 
         public virtual void SetLevel(int index)
@@ -88,9 +106,7 @@ namespace TanksDemo
 
             goHPCanvas.SetActive(b);
         }
-
- 
-
+         
         /// <summary>
         /// 重置坦克
         /// </summary>
@@ -102,6 +118,9 @@ namespace TanksDemo
             goInstance.SetActive(false);
             goInstance.SetActive(true);
         }
+ 
+
+
 
 
     }
