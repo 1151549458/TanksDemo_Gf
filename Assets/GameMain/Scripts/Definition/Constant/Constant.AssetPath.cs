@@ -31,9 +31,9 @@ namespace GameFrameworkDemo
 
             public static class GetUI
             {
-                public static string LoginPanlePath = "Assets/GameMain/Prefabs/UI/LoginPanle.prefab"; 
+                public static string LoginPanlePath = "Assets/GameMain/Prefabs/UI/LoginPanel.prefab"; 
                 public static string IntroducePanelPath = "Assets/GameMain/Prefabs/UI/IntroducePanel.prefab"; 
-                public static string StartMenuPath = "Assets/GameMain/Prefabs/UI/StartMenu.prefab";
+                public static string StartMenuPath = "Assets/GameMain/Prefabs/UI/StartMenuPanel.prefab";
 
             }
             public static class GetEntity

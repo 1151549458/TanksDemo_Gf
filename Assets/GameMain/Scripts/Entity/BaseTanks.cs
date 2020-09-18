@@ -23,11 +23,6 @@ namespace TanksDemo
 
 
 
-
-
-
-
-
     public class BaseTanks : MonoBehaviour
     {
         /// <summary>

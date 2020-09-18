@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 namespace TanksDemo
@@ -6,26 +6,26 @@ namespace TanksDemo
     public class TanksInfo 
     {
         /// <summary>
-        /// µÈ¼¶
+        /// ç­‰çº§
         /// </summary>
         public int Level { get; set; }
 
         /// <summary>
-        /// µ±Ç°ÑªÁ¿
+        /// å½“å‰è¡€é‡
         /// </summary>
         public int CurrentHp { get; set; }
         /// <summary>
-        /// ×î´óÑªÁ¿
+        /// æœ€å¤§è¡€é‡
         /// </summary>
         public int MaxHp { get { return Level * 100; } }
 
         /// <summary>
-        /// ¹¥»÷
+        /// æ”»å‡»
         /// </summary>
         public int Attack { get { return Level * 20; } }
 
         /// <summary>
-        /// bossÒª´óµã
+        /// bossè¦å¤§ç‚¹
         /// </summary>
         public float TankScale { get; set; }
 

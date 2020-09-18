@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+using SQFramework;
 namespace TanksDemo
 {
     public class IntroducePanelLogic : UGuiForm
@@ -13,9 +13,13 @@ namespace TanksDemo
         protected override void OnInit(object userData)
         {
             base.OnInit(userData);
-            GetComponent<Button>().onClick.AddListener(()=> {
-                //this.OnClose(userData);
-            });
+            GUIEventListener.Get(gameObject).onClick = _=> {
+                OnClose(true, userData);
+            };
+
+            //GetComponent<Button>().onClick.AddListener(()=> {
+            //    this.OnClose(false, userData);
+            //});
         }
 
         public void SetContent(string title,string content)

@@ -19,6 +19,10 @@ namespace TanksDemo
             base.OnInit(userData);
             procedureMenu = null;
 
+            btnStart.gameObject.SetActive(true);
+            btnIntroduce.gameObject.SetActive(true);
+            btnExit.gameObject.SetActive(true);
+
             btnExit.onClick.AddListener(() => {
                 Application.Quit();
             });
@@ -44,7 +48,7 @@ namespace TanksDemo
                 procedureMenu.StartGameClick();
             });
             btnIntroduce.onClick.AddListener(() => {
-                GameEntry.UI.OpenUIForm(Constant.AssetPath.GetUI.IntroducePanelPath, "one", this);
+                GameEntry.UI.OpenUIForm(Constant.AssetPath.GetUI.IntroducePanelPath, "one", false);
             });
           
         }
