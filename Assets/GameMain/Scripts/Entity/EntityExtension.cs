@@ -15,6 +15,7 @@ using UnityEngine;
 using GameFramework.DataTable;
 using System;
 using UnityGameFramework.Runtime;
+using TanksDemo;
 namespace GameFrameworkDemo
 {
     public static class EntityExtension
@@ -33,6 +34,19 @@ namespace GameFrameworkDemo
         public static void HideEntity(this EntityComponent entityComponent, Entity entity)
         {
             entityComponent.HideEntity(entity);
+        }
+
+        public static void ShowPlayerTanks(this EntityComponent entityComponent,PlayerTankData playerTankData)
+        {
+       //     entityComponent.ShowEntity()
+        }
+        public static void ShowEnemtyTanks(this EntityComponent entityComponent)
+        {
+
+        }
+        public static void ShowEnemtyBossTanks(this EntityComponent entityComponent)
+        {
+
         }
         //public static void ShowBullet(this EntityComponent entityCompoennt, BulletData data)
         //{

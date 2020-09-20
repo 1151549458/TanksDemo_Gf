@@ -12,51 +12,58 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityGameFramework.Runtime;
+using GameFrameworkDemo;
 namespace TanksDemo
-{
-    public interface ITanksInfo
+{ 
+    public abstract class BaseTanks : EntityLogic
     {
-        void TakeDamage(float amount);
-
-
-    }
-
-
-
-    public class BaseTanks : MonoBehaviour
-    {
-        /// <summary>
-        /// 坦克阵营类型
-        /// </summary>
-        public CampType tanksCampType;
+        ///// <summary>
+        ///// 坦克阵营类型
+        ///// </summary>
+        //public CampType tanksCampType;
        
         public Color tanksColor;                             // 坦克的颜色
         public Transform tranTanskPoint;
-        public GameObject goInstance;
+   
 
         protected TanksInfo tanksInfo;
         protected TankMovement tankMovement;
         protected TankShooting tankShooting;
         protected GameObject goHPCanvas;
-        protected virtual void Awake()
-        { 
-           // goInstance = go; 
-            tankMovement = goInstance.GetComponent<TankMovement>();
-            tankShooting = goInstance.GetComponent<TankShooting>(); 
-            goHPCanvas = goInstance.GetComponentInChildren<Canvas>().gameObject;
-           
-        }
-        /// <summary>
-        /// 初始化信息
-        /// </summary>
-        /// <param name="t"></param>
-        /// <param name="info"></param>
-        public virtual void InitTanks(CampType t , TanksInfo info)
+
+        private TargetableObjectData targetableObjectData = null;
+
+        protected override void OnInit(object userData)
         {
-            tanksCampType = t;
-            tanksInfo = info;
-            SetTanksColor(tanksColor);
+            base.OnInit(userData);
+
+            tankMovement = GetComponent<TankMovement>();
+            tankShooting = GetComponent<TankShooting>();
+            goHPCanvas = GetComponentInChildren<Canvas>().gameObject;
+               
         }
+        protected override void OnShow(object userData)
+        {
+            base.OnShow(userData);
+            targetableObjectData = userData as TargetableObjectData;
+            tanksColor = targetableObjectData.SelfColor;
+
+            SetTanksColor(targetableObjectData.SelfColor);
+        }
+        protected override void OnHide(bool isShutdown, object userData)
+        {
+            base.OnHide(isShutdown, userData);
+        }
+        protected override void OnUpdate(float elapseSeconds, float realElapseSeconds)
+        {
+            base.OnUpdate(elapseSeconds, realElapseSeconds);
+        }
+
+        protected override void OnRecycle()
+        {
+            base.OnRecycle();
+        } 
 
         public virtual void LevelUp()
         {
@@ -66,12 +73,7 @@ namespace TanksDemo
 
         public virtual void SetLevel(int index)
         {
-            tanksInfo.Level = index;
-
-            if (tanksCampType == CampType.EnemyBoss)
-            {
-                tanksInfo.TankScale += tanksInfo.Level * 0.08f;
-            }
+            tanksInfo.Level = index; 
         }
 
         /// <summary>
@@ -80,17 +82,23 @@ namespace TanksDemo
         /// <param name="color"></param>
         public virtual void SetTanksColor(Color color)
         { 
-            MeshRenderer[] renderers = goInstance.GetComponentsInChildren<MeshRenderer>(); 
+            MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>(); 
             for (int i = 0; i < renderers.Length; i++)
             { 
                 renderers[i].material.color = color;
             } 
         }
-        public virtual void SetAttriInfo()
-        {
-             
-        }
 
+        public void TakeDamage(int amount)
+        {
+            targetableObjectData.CurrentHP -= amount;
+
+            SetHealthUI();
+            if (currentHealth <= 0 && !isDead)
+            {
+                OnDeath();
+            }
+        }
         /// <summary>
         /// 设置属性状态 true和false
         /// </summary>
@@ -107,11 +115,11 @@ namespace TanksDemo
         /// </summary>
         public virtual void Reset()
         {
-            goInstance.transform.position = tranTanskPoint.position;
-            goInstance.transform.rotation = tranTanskPoint.rotation;
+            transform.position = tranTanskPoint.position;
+            transform.rotation = tranTanskPoint.rotation;
 
-            goInstance.SetActive(false);
-            goInstance.SetActive(true);
+            gameObject.SetActive(false);
+            gameObject.SetActive(true);
         }
  
 

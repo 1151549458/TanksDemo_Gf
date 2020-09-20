@@ -15,23 +15,7 @@ using UnityEngine;
 namespace TanksDemo
 {
     public class PlayerTanks : BaseTanks
-    {
-        protected override void Awake()
-        {
-            base.Awake();
-
-
-        }
-
-        public override void InitTanks(CampType t, TanksInfo info)
-        {
-            base.InitTanks(t, info);
-
-
-
-
-        }
-
+    { 
         public override void SetControlStep(bool b)
         {
             base.SetControlStep(b);

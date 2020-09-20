@@ -32,6 +32,10 @@ namespace TanksDemo
 
             GameFrameworkDemo.GameEntry.Scene.LoadScene(Constant.AssetPath.GetScene.MainScenePath, this);
 
+
+
+
+
         }
         protected override void OnInit(ProcedureOwner procedureOwner)
         {
