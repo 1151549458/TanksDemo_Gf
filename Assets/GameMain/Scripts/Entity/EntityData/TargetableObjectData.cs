@@ -58,6 +58,7 @@ namespace TanksDemo
         {
             get;
         }
+        public bool IsDead { get; set; }
 
         /// <summary>
         /// 生命百分比。
@@ -68,6 +69,10 @@ namespace TanksDemo
             {
                 return MaxHP > 0 ? (float)CurrentHP / MaxHP : 0f;
             }
+        }
+        public abstract int Attack
+        {
+            get;
         }
 
         public int Level { get; set; }

@@ -20,7 +20,8 @@ namespace TanksDemo {
         public override int MaxHP
         {
             get;
-        } 
+        }
 
+        public override int Attack { get; }
     }
 }

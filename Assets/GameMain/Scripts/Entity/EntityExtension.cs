@@ -36,16 +36,18 @@ namespace GameFrameworkDemo
             entityComponent.HideEntity(entity);
         }
 
-        public static void ShowPlayerTanks(this EntityComponent entityComponent,PlayerTankData playerTankData)
+        public static void ShowPlayerTanks(this EntityComponent entityComponent,PlayerTankData  data)
         {
-       //     entityComponent.ShowEntity()
+            entityComponent.ShowEntity(typeof(PlayerTanks),"PlayerTanks", 90, data);
         }
-        public static void ShowEnemtyTanks(this EntityComponent entityComponent)
+        public static void ShowEnemtyTanks(this EntityComponent entityComponent,EnemtyTanksData data)
         {
+            entityComponent.ShowEntity(typeof(EnemtyTanks), "EnemtyTanks", 90, data);
 
         }
-        public static void ShowEnemtyBossTanks(this EntityComponent entityComponent)
+        public static void ShowEnemtyBossTanks(this EntityComponent entityComponent,EnemtyBossTankData data)
         {
+            entityComponent.ShowEntity(typeof(EnemtyBossTanks), "EnemtyBossTanks", 90, data);
 
         }
         //public static void ShowBullet(this EntityComponent entityCompoennt, BulletData data)
@@ -57,6 +59,9 @@ namespace GameFrameworkDemo
         //{
         //    entityComponent.ShowEntity(typeof(CubeLogic),"cube",10,);
         //}
+
+
+
         private static void ShowEntity(this EntityComponent entityComponent, Type logicType, string entityGroup, int priority, EntityData data)
         {
             if (data == null)

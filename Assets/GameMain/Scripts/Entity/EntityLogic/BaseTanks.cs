@@ -14,6 +14,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityGameFramework.Runtime;
 using GameFrameworkDemo;
+using UnityEngine.UI;
 namespace TanksDemo
 { 
     public abstract class BaseTanks : EntityLogic
@@ -23,15 +24,16 @@ namespace TanksDemo
         ///// </summary>
         //public CampType tanksCampType;
        
-        public Color tanksColor;                             // 坦克的颜色
+        private Color tanksColor;                             // 坦克的颜色
         public Transform tranTanskPoint;
-   
 
+
+        protected Slider healthSlider;
         protected TanksInfo tanksInfo;
         protected TankMovement tankMovement;
         protected TankShooting tankShooting;
         protected GameObject goHPCanvas;
-
+        protected Image fillImage;
         private TargetableObjectData targetableObjectData = null;
 
         protected override void OnInit(object userData)
@@ -41,7 +43,8 @@ namespace TanksDemo
             tankMovement = GetComponent<TankMovement>();
             tankShooting = GetComponent<TankShooting>();
             goHPCanvas = GetComponentInChildren<Canvas>().gameObject;
-               
+            healthSlider = transform.Find("Canvas/HealthSlider").GetComponent<Slider>();
+            fillImage = healthSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
         }
         protected override void OnShow(object userData)
         {
@@ -94,7 +97,7 @@ namespace TanksDemo
             targetableObjectData.CurrentHP -= amount;
 
             SetHealthUI();
-            if (currentHealth <= 0 && !isDead)
+            if (targetableObjectData.CurrentHP <= 0 && !targetableObjectData.IsDead)
             {
                 OnDeath();
             }
@@ -121,10 +124,21 @@ namespace TanksDemo
             gameObject.SetActive(false);
             gameObject.SetActive(true);
         }
- 
 
 
+        protected void SetHealthUI()
+        { 
+            healthSlider.value = targetableObjectData.HPRatio;
 
+            fillImage.color = Color.Lerp(Color.red, Color.green, targetableObjectData.CurrentHP / targetableObjectData.MaxHP);
+            
+        }
 
+        protected virtual void OnDeath()
+        {
+            targetableObjectData.IsDead = true; 
+            gameObject.SetActive(false);
+
+        }
     }
 }

@@ -27,6 +27,17 @@ namespace TanksDemo
 
 
         }
+        protected override void OnShow(object userData)
+        {
+            base.OnShow(userData);
+        }
+        protected override void OnDeath()
+        {
+            base.OnDeath();
+
+            //播放特效和声音
+
+        }
 
         public override void SetTanksColor(Color color)
         {

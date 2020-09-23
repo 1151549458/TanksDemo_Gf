@@ -29,7 +29,10 @@ namespace TanksDemo {
         {
             get { return 100 + Level * 10; } 
         }
-        
+        public override int Attack
+        {
+            get { return 15 + Level * 15; }
+        }
 
     }
 }
