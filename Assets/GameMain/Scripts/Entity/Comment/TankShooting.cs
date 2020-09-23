@@ -50,8 +50,7 @@ namespace TanksDemo
         private void Fire()
         {
             isFire = true;
-
-
+             
 
         }
 

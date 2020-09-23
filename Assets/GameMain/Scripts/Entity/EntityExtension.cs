@@ -50,18 +50,24 @@ namespace GameFrameworkDemo
             entityComponent.ShowEntity(typeof(EnemtyBossTanks), "EnemtyBossTanks", 90, data);
 
         }
-        //public static void ShowBullet(this EntityComponent entityCompoennt, BulletData data)
-        //{
-        //    entityCompoennt.ShowEntity(typeof(Bullet), "Bullet", Constant.AssetPriority.BulletAsset, data);
-        //}
+
+
+        public static void ShowBullet(this EntityComponent entityCompoennt, BulletData data)
+        {
+            entityCompoennt.ShowEntity(typeof(Bullet), "Bullet", Constant.AssetPriority.BulletAsset, data);
+        }
+
+        public static void ShowTankDieExplosion(this EntityComponent entityComponent )
+        {
+
+        }
+
 
         //public static void ShowCube(this EntityComponent entityComponent,)
         //{
         //    entityComponent.ShowEntity(typeof(CubeLogic),"cube",10,);
         //}
-
-
-
+         
         private static void ShowEntity(this EntityComponent entityComponent, Type logicType, string entityGroup, int priority, EntityData data)
         {
             if (data == null)
