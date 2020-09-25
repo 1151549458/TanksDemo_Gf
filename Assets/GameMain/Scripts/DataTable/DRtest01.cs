@@ -5,7 +5,7 @@
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2020-09-24 15:09:43.322
+// 生成时间：2020-09-24 15:09:43.305
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace GameFrameworkDemo
 {
     /// <summary>
-    /// 实体表。
+    /// 测试表。
     /// </summary>
-    public class DREntity : DataRowBase
+    public class DRtest01 : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取实体编号。
+        /// 获取编号。
         /// </summary>
         public override int Id
         {
@@ -37,9 +37,27 @@ namespace GameFrameworkDemo
         }
 
         /// <summary>
-        /// 获取资源名称。
+        /// 获取字符串。
         /// </summary>
-        public string AssetName
+        public string StringValue
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取浮点数。
+        /// </summary>
+        public float FloatValue
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取Bool值。
+        /// </summary>
+        public bool BoolValue
         {
             get;
             private set;
@@ -59,8 +77,9 @@ namespace GameFrameworkDemo
                 int index = 0;
                 index++;
                 m_Id = int.Parse(columnTexts[index++]);
-                index++;
-                AssetName = columnTexts[index++];
+                StringValue = columnTexts[index++];
+                FloatValue = float.Parse(columnTexts[index++]);
+                BoolValue = bool.Parse(columnTexts[index++]);
             }
             else if (dataType == typeof(byte[]))
             {
@@ -70,7 +89,9 @@ namespace GameFrameworkDemo
                     using (BinaryReader binaryReader = new BinaryReader(memoryStream, Encoding.UTF8))
                     {
                         m_Id = binaryReader.Read7BitEncodedInt32();
-                        AssetName = strings[binaryReader.Read7BitEncodedInt32()];
+                        StringValue = strings[binaryReader.Read7BitEncodedInt32()];
+                        FloatValue = binaryReader.ReadSingle();
+                        BoolValue = binaryReader.ReadBoolean();
                     }
                 }
             }

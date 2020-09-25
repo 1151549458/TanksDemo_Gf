@@ -30,36 +30,36 @@ namespace GameFrameworkDemo
 
             return entity;
         }
-
+  
         public static void HideEntity(this EntityComponent entityComponent, Entity entity)
         {
             entityComponent.HideEntity(entity);
         }
 
-        public static void ShowPlayerTanks(this EntityComponent entityComponent,PlayerTankData  data)
+        public static void ShowPlayerTanks(this EntityComponent entityComponent,PlayerTankData data)
         {
-            entityComponent.ShowEntity(typeof(PlayerTanks),"PlayerTanks", 90, data);
+            entityComponent.ShowEntity(typeof(PlayerTanks),Constant.EntityName.PlayerTanksName, Constant.AssetPriority.PlayerTanksAsset, data);
+  
         }
         public static void ShowEnemtyTanks(this EntityComponent entityComponent,EnemtyTanksData data)
         {
-            entityComponent.ShowEntity(typeof(EnemtyTanks), "EnemtyTanks", 90, data);
+            entityComponent.ShowEntity(typeof(EnemtyTanks), Constant.EntityName.EnemtyTanksName, Constant.AssetPriority.EnemtyTanksAsset, data);
 
         }
         public static void ShowEnemtyBossTanks(this EntityComponent entityComponent,EnemtyBossTankData data)
         {
-            entityComponent.ShowEntity(typeof(EnemtyBossTanks), "EnemtyBossTanks", 90, data);
+            entityComponent.ShowEntity(typeof(EnemtyBossTanks), Constant.EntityName.EnemtyBossTanksName, Constant.AssetPriority.EnemtyBossTanksAsset, data);
 
+        } 
+         
+        public static void ShowBullet(this EntityComponent entityComponent, BulletData data)
+        {
+            entityComponent.ShowEntity(typeof(Bullet), Constant.EntityName.BulletName, Constant.AssetPriority.BulletAsset, data);
         }
 
-
-        public static void ShowBullet(this EntityComponent entityCompoennt, BulletData data)
+        public static void ShowEffect(this EntityComponent entityComponent, EffectData data )
         {
-            entityCompoennt.ShowEntity(typeof(Bullet), "Bullet", Constant.AssetPriority.BulletAsset, data);
-        }
-
-        public static void ShowTankDieExplosion(this EntityComponent entityComponent )
-        {
-
+            entityComponent.ShowEntity(typeof(Effect), Constant.EntityName.EffectName, Constant.AssetPriority.EffectAsset, data); 
         }
 
 
@@ -67,7 +67,7 @@ namespace GameFrameworkDemo
         //{
         //    entityComponent.ShowEntity(typeof(CubeLogic),"cube",10,);
         //}
-         
+
         private static void ShowEntity(this EntityComponent entityComponent, Type logicType, string entityGroup, int priority, EntityData data)
         {
             if (data == null)

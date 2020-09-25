@@ -1,11 +1,11 @@
-﻿//------------------------------------------------------------
+//------------------------------------------------------------
 // Game Framework
 // Copyright © 2013-2020 Jiang Yin. All rights reserved.
 // Homepage: https://gameframework.cn/
 // Feedback: mailto:ellan@gameframework.cn
 //------------------------------------------------------------
 // 此文件由工具自动生成，请勿直接修改。
-// 生成时间：2020-09-24 15:09:43.322
+// 生成时间：2020-09-24 15:09:43.344
 //------------------------------------------------------------
 
 using GameFramework;
@@ -19,14 +19,14 @@ using UnityGameFramework.Runtime;
 namespace GameFrameworkDemo
 {
     /// <summary>
-    /// 实体表。
+    /// 声音配置表。
     /// </summary>
-    public class DREntity : DataRowBase
+    public class DRUISound : DataRowBase
     {
         private int m_Id = 0;
 
         /// <summary>
-        /// 获取实体编号。
+        /// 获取声音编号。
         /// </summary>
         public override int Id
         {
@@ -40,6 +40,24 @@ namespace GameFrameworkDemo
         /// 获取资源名称。
         /// </summary>
         public string AssetName
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取优先级（默认0，128最高，-128最低）。
+        /// </summary>
+        public int Priority
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
+        /// 获取音量（0~1）。
+        /// </summary>
+        public float Volume
         {
             get;
             private set;
@@ -61,6 +79,8 @@ namespace GameFrameworkDemo
                 m_Id = int.Parse(columnTexts[index++]);
                 index++;
                 AssetName = columnTexts[index++];
+                Priority = int.Parse(columnTexts[index++]);
+                Volume = float.Parse(columnTexts[index++]);
             }
             else if (dataType == typeof(byte[]))
             {
@@ -71,6 +91,8 @@ namespace GameFrameworkDemo
                     {
                         m_Id = binaryReader.Read7BitEncodedInt32();
                         AssetName = strings[binaryReader.Read7BitEncodedInt32()];
+                        Priority = binaryReader.Read7BitEncodedInt32();
+                        Volume = binaryReader.ReadSingle();
                     }
                 }
             }

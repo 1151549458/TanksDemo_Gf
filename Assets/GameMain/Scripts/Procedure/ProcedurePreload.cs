@@ -23,15 +23,14 @@ namespace GameFrameworkDemo
     {
         public static readonly string[] DataTableNames = new string[]
         {
-            "Test", // 这是个测试资源，并没有使用
-             "UIForm"
-            /* "Entity",
+            "test01", // 这是个测试资源，并没有使用 
+            "Entity",
             "Music",
-            "Scene",
             "Sound", 
             "UIForm",
             "UISound",
-            */
+          /*   "Scene", ,
+         */
         };
         private Dictionary<string, bool> m_LoadedFlag = new Dictionary<string, bool>();
 
