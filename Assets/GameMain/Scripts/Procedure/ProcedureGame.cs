@@ -33,7 +33,7 @@ namespace TanksDemo
             GameFrameworkDemo.GameEntry.Scene.LoadScene(Constant.AssetPath.GetScene.MainScenePath, this);
 
 
-
+            GameFrameworkDemo.GameEntry.Entity.ShowPlayerTanks(new PlayerTankData(GameFrameworkDemo.GameEntry.Entity.GenerateSerialId(),10000));
 
 
         }

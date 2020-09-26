@@ -6,6 +6,7 @@
 //------------------------------------------------------------
 
 using GameFramework;
+using GameFramework.DataTable;
 using System;
 using UnityEngine;
 using UnityGameFramework.Runtime;
@@ -14,7 +15,7 @@ namespace GameFrameworkDemo
 {
     public static class DataTableExtension
     {
-        private const string DataRowClassPrefixName = "StarForce.DR";
+        private const string DataRowClassPrefixName = "GameFrameworkDemo.DR";
         internal static readonly char[] DataSplitSeparators = new char[] { '\t' };
         internal static readonly char[] DataTrimSeparators = new char[] { '\"' };
 

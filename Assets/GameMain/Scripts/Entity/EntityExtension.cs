@@ -20,6 +20,8 @@ namespace GameFrameworkDemo
 {
     public static class EntityExtension
     {
+        private static int s_SerialId;
+
         public static Entity GetGameEntity(this EntityComponent entityComponent, int entityId)
         {
             Entity entity = entityComponent.GetEntity(entityId);
@@ -87,7 +89,10 @@ namespace GameFrameworkDemo
             entityComponent.ShowEntity(data.Id, logicType, AssetUtility.GetEntityAsset(drEntity.AssetName), entityGroup, priority, data);
         }
 
-
+        public static int GenerateSerialId(this EntityComponent entityComponent)
+        {
+            return --s_SerialId;
+        }
 
     }
 }

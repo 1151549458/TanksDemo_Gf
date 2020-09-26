@@ -15,6 +15,7 @@ using UnityEngine;
 using UnityGameFramework.Runtime;
 using GameFrameworkDemo;
 using UnityEngine.UI;
+using SQFramework;
 namespace TanksDemo
 { 
     public abstract class BaseTanks : EntityLogic
@@ -25,16 +26,18 @@ namespace TanksDemo
         //public CampType tanksCampType;
        
         private Color tanksColor;                             // 坦克的颜色
-        public Transform tranTanskPoint;
+        protected Transform tranTanskPoint;
 
 
-        protected Slider healthSlider;
-        protected TanksInfo tanksInfo;
+   
         protected TankMovement tankMovement;
         protected TankShooting tankShooting;
+
         protected GameObject goHPCanvas;
         protected Image fillImage;
-        private TargetableObjectData targetableObjectData = null;
+        protected Slider healthSlider;
+
+        protected TargetableObjectData targetableObjectData = null;
 
         protected override void OnInit(object userData)
         {
@@ -42,9 +45,12 @@ namespace TanksDemo
 
             tankMovement = GetComponent<TankMovement>();
             tankShooting = GetComponent<TankShooting>();
+
             goHPCanvas = GetComponentInChildren<Canvas>().gameObject;
             healthSlider = transform.Find("Canvas/HealthSlider").GetComponent<Slider>();
             fillImage = healthSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
+
+            targetableObjectData.DeadEffectId = 40001;   //因为tank死亡特效一样
         }
         protected override void OnShow(object userData)
         {
@@ -70,20 +76,20 @@ namespace TanksDemo
 
         public virtual void LevelUp()
         {
-            tanksInfo.Level++;
+             
              
         }
 
         public virtual void SetLevel(int index)
         {
-            tanksInfo.Level = index; 
+            
         }
 
         /// <summary>
         /// 设置坦克颜色
         /// </summary>
         /// <param name="color"></param>
-        public virtual void SetTanksColor(Color color)
+        void SetTanksColor(Color color)
         { 
             MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>(); 
             for (int i = 0; i < renderers.Length; i++)
@@ -128,15 +134,22 @@ namespace TanksDemo
 
         protected void SetHealthUI()
         { 
-            healthSlider.value = targetableObjectData.HPRatio;
+            healthSlider.value = targetableObjectData.HPRatio; 
 
-            fillImage.color = Color.Lerp(Color.red, Color.green, targetableObjectData.CurrentHP / targetableObjectData.MaxHP);
-            
+            fillImage.color = Color.Lerp(Color.red, Color.green, targetableObjectData.CurrentHP / targetableObjectData.MaxHP); 
+
         }
 
         protected virtual void OnDeath()
         {
-            targetableObjectData.IsDead = true; 
+            targetableObjectData.IsDead = true;
+            //播放特效和声音
+            GameFrameworkDemo.GameEntry.Entity.ShowEffect(new EffectData(GameFrameworkDemo.GameEntry.Entity.GenerateSerialId(), targetableObjectData.DeadEffectId)
+            {
+                Position = CachedTransform.localPosition,
+            });
+            GameFrameworkDemo.GameEntry.Sound.PlaySound(targetableObjectData.DeadSoundId);
+
             gameObject.SetActive(false);
 
         }

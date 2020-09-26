@@ -13,6 +13,9 @@ namespace TanksDemo
         [SerializeField]
         private int currentHP = 0;
 
+        [SerializeField]
+        private int m_DeadEffectId = 0;
+
         public TargetableObjectData(int entityId, int typeId, CampType camp ,Color color)
             : base(entityId, typeId)
         {
@@ -31,7 +34,8 @@ namespace TanksDemo
                 return m_Camp;
             }
         }
-
+        public int DeadEffectId { get; set; }
+        public int DeadSoundId { get; set; }
         /// <summary>
         /// µ±Ç°ÉúÃü¡£
         /// </summary>
@@ -78,6 +82,9 @@ namespace TanksDemo
         public int Level { get; set; }
  
         public float TankScale { get { return Camp == CampType.EnemyBoss ? 1.5f : 1.0f; }  }
+
+
+
     }
 }
  

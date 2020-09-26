@@ -12,6 +12,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameFrameworkDemo;
 namespace TanksDemo
 {
     public class PlayerTanks : BaseTanks
@@ -35,16 +36,11 @@ namespace TanksDemo
         {
             base.OnDeath();
 
-            //播放特效和声音
-
+        
+             
         }
 
-        public override void SetTanksColor(Color color)
-        {
-            base.SetTanksColor(color);
-        }
-
-
+  
         public override void Reset()
         {
             base.Reset();
