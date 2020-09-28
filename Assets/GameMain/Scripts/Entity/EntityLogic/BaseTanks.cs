@@ -25,7 +25,7 @@ namespace TanksDemo
         ///// </summary>
         //public CampType tanksCampType;
        
-        private Color tanksColor;                             // 坦克的颜色
+        protected Color tanksColor;                             // 坦克的颜色
         protected Transform tranTanskPoint;
 
 
@@ -50,15 +50,16 @@ namespace TanksDemo
             healthSlider = transform.Find("Canvas/HealthSlider").GetComponent<Slider>();
             fillImage = healthSlider.transform.GetChild(1).GetChild(0).GetComponent<Image>();
 
-            targetableObjectData.DeadEffectId = 40001;   //因为tank死亡特效一样
+          
         }
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
-            targetableObjectData = userData as TargetableObjectData;
-            tanksColor = targetableObjectData.SelfColor;
+            targetableObjectData = userData as TargetableObjectData; 
+            targetableObjectData.DeadEffectId = 40001;   //因为tank死亡特效一样
 
-            SetTanksColor(targetableObjectData.SelfColor);
+         
+          
         }
         protected override void OnHide(bool isShutdown, object userData)
         {
@@ -89,9 +90,10 @@ namespace TanksDemo
         /// 设置坦克颜色
         /// </summary>
         /// <param name="color"></param>
-        void SetTanksColor(Color color)
+        public void SetTanksColor(Color color)
         { 
-            MeshRenderer[] renderers = GetComponentsInChildren<MeshRenderer>(); 
+            MeshRenderer[] renderers = transform.GetChild(0).GetComponentsInChildren<MeshRenderer>();
+            Debug.Log(renderers.Length);
             for (int i = 0; i < renderers.Length; i++)
             { 
                 renderers[i].material.color = color;

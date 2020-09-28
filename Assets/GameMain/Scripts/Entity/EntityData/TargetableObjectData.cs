@@ -16,12 +16,12 @@ namespace TanksDemo
         [SerializeField]
         private int m_DeadEffectId = 0;
 
-        public TargetableObjectData(int entityId, int typeId, CampType camp ,Color color)
+        public TargetableObjectData(int entityId, int typeId, CampType camp)
             : base(entityId, typeId)
         {
             m_Camp = camp;
             currentHP = 0;
-            SelfColor = color; 
+          
         }
 
         /// <summary>
@@ -51,10 +51,6 @@ namespace TanksDemo
             }
         }
 
-        public Color SelfColor
-        {
-            get;set;
-        }
         /// <summary>
         /// ×î´óÉúÃü¡£
         /// </summary>

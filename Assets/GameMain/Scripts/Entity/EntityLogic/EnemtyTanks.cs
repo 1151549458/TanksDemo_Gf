@@ -15,13 +15,12 @@ using UnityEngine;
 namespace TanksDemo {
     public class EnemtyTanks :BaseTanks
     {
-        void Start()
+        protected override void OnShow(object userData)
         {
-
-        }
-
-        void Update()
-        {
+            base.OnShow(userData);
+            tanksColor = new Color(229.0f/255.0f, 46.0f/ 255.0f, 40.0f / 255.0f, 1);
+            Debug.Log(tanksColor);
+            SetTanksColor(tanksColor);
 
         }
     }

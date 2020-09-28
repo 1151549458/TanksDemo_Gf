@@ -34,8 +34,9 @@ namespace TanksDemo
 
 
             GameFrameworkDemo.GameEntry.Entity.ShowPlayerTanks(new PlayerTankData(GameFrameworkDemo.GameEntry.Entity.GenerateSerialId(),10000));
+            GameFrameworkDemo.GameEntry.Entity.ShowEnemtyTanks(new EnemtyTanksData(GameFrameworkDemo.GameEntry.Entity.GenerateSerialId(),10000));
 
-
+            
         }
         protected override void OnInit(ProcedureOwner procedureOwner)
         {

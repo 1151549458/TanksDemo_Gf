@@ -31,6 +31,8 @@ namespace TanksDemo
         protected override void OnShow(object userData)
         {
             base.OnShow(userData);
+            tanksColor = Color.red;
+            SetTanksColor(tanksColor);
         }
         protected override void OnDeath()
         {

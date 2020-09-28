@@ -12,9 +12,10 @@ namespace TanksDemo {
         [SerializeField]
         private CampType m_OwnerCamp = CampType.UnKnown;
 
-        public TanksData(int entityId,int typeId,CampType camp,Color color) : base( entityId, typeId,  camp, color)
+        public TanksData(int entityId,int typeId,CampType camp) : base( entityId, typeId,  camp)
         { 
             CurrentHP = MaxHP;
+     
         }
 
         public override int MaxHP

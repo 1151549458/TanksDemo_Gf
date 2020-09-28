@@ -48,17 +48,17 @@ namespace GameFrameworkDemo
 
         public static string GetEntityAsset(string assetName)
         {
-            return Utility.Text.Format("Assets/GameMain/Entities/{0}.prefab", assetName);
+            return Utility.Text.Format("Assets/GameMain/Prefabs/Model/{0}.prefab", assetName);
         }
 
         public static string GetUIFormAsset(string assetName)
         {
-            return Utility.Text.Format("Assets/GameMain/UI/UIForms/{0}.prefab", assetName);
+            return Utility.Text.Format("Assets/GameMain/Prefabs/UI/{0}.prefab", assetName);
         }
 
         public static string GetUISoundAsset(string assetName)
         {
-            return Utility.Text.Format("Assets/GameMain/UI/UISounds/{0}.wav", assetName);
+            return Utility.Text.Format("Assets/GameMain/Sounds/UISounds/{0}.wav", assetName);
         }
     }
 }

@@ -7,9 +7,9 @@ namespace TanksDemo
     {
         [SerializeField]
         private string m_Name = null;
-        public EnemtyTanksData(int entityId, int typeId) : base(entityId, typeId, CampType.Player,new Color(229, 46,40,1))
+        public EnemtyTanksData(int entityId, int typeId) : base(entityId, typeId, CampType.Player)
         {
-
+           
         }
         /// <summary>
         /// ½ÇÉ«Ãû³Æ¡£
